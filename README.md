@@ -3,39 +3,43 @@
 ## Project Breakdown
 
 Design team:
-<br>
-<a href="https://github.com/kassandraq" target="_blank"> Kassandra Quintana</a>
-<br>
-<a href="https://github.com/Crent99" target="_blank"> Colin Rent</a>
-<br>
-<a href="https://github.com/tarheelz93" target="_blank"> Christine Thompson</a>
+[Kassandra Quinatana](https://github.com/kassandraq), [Colin Rent](https://github.com/Crent99), and [Christine Thompson](https://github.com/tarheelz93)
 
 Functionality team:
-<br>
-<a href="https://github.com/AndrewCMonson" target="_blank"> Andrew Monson</a>
-<br>
-<a href="https://github.com/Jessmica11" target="_blank"> Jessica Scheck</a>
+[Andrew Monson](https://github.com/AndrewCMonson) and [Jessica Scheck](https://github.com/Jessmica11)
 
 ## User Story
 
-'''md
+```md
 AS a user without a healthcare provider
 I WANT to input my zipcode/location information
-SO THAT I can have a list of healthcare providers with their contact info
-'''
+SO THAT I can have a list of healthcare providers near me and their contact information
+```
 
 ## Acceptance Criteria
 
-'''md
+```md
 GIVEN I am looking for a healthcare provider
 WHEN I open the tool
-THEN I can input my zipcode
-WHEN I submit my personal information
-THEN I am presented with multiple results of local healthcare providers and their contact information
-'''
+THEN I can unput my zipcode
+WHEN I submit my personal location
+THEN I am presented with multiple healthcare providers within my location range with their contact information
+```
 
 ## Project Parameters
 
 MUST use 2 APIs
 
+```md
 API #1:
+[Zippopotamus](https://www.zippopotam.us/)
+
+API #2:
+[National Plan & Provider Enumeration System (NPPES) ](https://npiregistry.cms.hhs.gov/api-page)
+```
+
+MUST use CSS framework other than Bootstrap
+
+```md
+Chosen CSS framework: [ ]()
+```
