@@ -28,18 +28,14 @@ THEN I am presented with multiple healthcare providers within my location range 
 
 ## Project Parameters
 
-MUST use 2 APIs
+### MUST use 2 APIs
 
-```md
-API #1:
+API 1:
 [Zippopotamus](https://www.zippopotam.us/)
 
-API #2:
+API 2:
 [National Plan & Provider Enumeration System (NPPES) ](https://npiregistry.cms.hhs.gov/api-page)
-```
 
-MUST use CSS framework other than Bootstrap
+### MUST use CSS framework other than Bootstrap
 
-```md
 Chosen CSS framework: [ ]()
-```
