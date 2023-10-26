@@ -3,19 +3,13 @@
 // currently it is NOT working due to an issues with the NPPES api configuration
 
 const getHealthInfo = (zipcode) => {
-    const apiUrl = `https://npi-registry-proxy.herokuapp.com/?postal_code=${zipcode}`
+    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&postal_code=${zipcode}&pretty=on&limit=200`;
+    
 
-    fetch(apiUrl)
-        .then((response) => {
-            if(response.ok){
-                response.json()
-            } else {
-                alert('Error: ' + response.statusText);
-            }
-        })
-        .catch((error) => {
-            alert('Unable to connect to NPPES Registry')
-        })
+    fetch(url)
+        .then(response => response.json())
+        .then(responseJson => console.log(responseJson)); 
+            
 }
 
 getHealthInfo(29680);
