@@ -1,6 +1,6 @@
 
-// this is a sample api fetch
-// currently it is NOT working due to an issues with the NPPES api configuration
+// this is a sample api fetch that returns 200 results based on a zipcode entered.
+
 
 const getHealthInfo = (zipcode) => {
     const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&postal_code=${zipcode}&pretty=on&limit=200`;
