@@ -3,8 +3,8 @@
 // example of API url call
 //https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1& +postal_code + =$ +zipcode + &pretty=on&limit=10
 
-const getHealthInfo = (zipcode) => {
-    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&postal_code=${zipcode}&pretty=on&limit=10`;
+const getHealthInfo = (city, state) => {
+    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&&city=${city}&state=${state}&pretty=on&limit=10`;
     // let responseData = null
     
 
@@ -18,7 +18,9 @@ const getHealthInfo = (zipcode) => {
 }
 
 // add event listener to grab search bar information and pass through getHealthInfo
-getHealthInfo(29680)
+getHealthInfo('Greenville', 'SC');
+
+// write API call that takes in a zip and converts the zip to city, state output
 
 
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
