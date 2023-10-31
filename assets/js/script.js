@@ -17,11 +17,24 @@ const getHealthInfo = (city, state) => {
         // .then(responseJson => compareZips(1740903558, responseJson))        
 }
 
+
+
 // add event listener to grab search bar information and pass through getHealthInfo
-getHealthInfo('Greenville', 'SC');
+// getHealthInfo('Greenville', 'SC');
 
-// write API call that takes in a zip and converts the zip to city, state output
 
+// API call that takes in a zipcode and returns city and state information
+const getCityState = (zipcode) =>{
+    const url = `http://ZiptasticAPI.com/${zipcode}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(responseJSON => getHealthInfo(responseJSON.city, responseJSON.state))
+}
+
+
+
+getCityState(29680)
 
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
 const buildProviders = (data) => {
@@ -117,19 +130,19 @@ const displayProviders = (arr) => {
 // example API call:
 // http://ZiptasticAPI.com/23517
 
-document.querySelector("search-button").addEventListener("click", getZipcode);
+// document.querySelector("search-button").addEventListener("click", getZipcode);
 
-function getZipcode() {
-    var userZipcode = document.querySelector("#user-input").value;
-    if (userZipcode == null) {
-        const userError = document.createElement('p')
-        feedback.textContent = 'Please submit a zipcode';
-    } else{
-      // pull city matched from zipcode API run,
-      // add to API url as ${city}
-      // run new API call then push to 2nd API above
-  }
-}
+// function getZipcode() {
+//     var userZipcode = document.querySelector("#user-input").value;
+//     if (userZipcode == null) {
+//         const feedback = document.createElement('p')
+//         feedback.textContent = 'Please submit a zipcode';
+//     } else{
+//       // pull city matched from zipcode API run,
+//       // add to API url as ${city}
+//       // run new API call then push to 2nd API above
+//   }
+// }
 
     
 
