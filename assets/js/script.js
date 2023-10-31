@@ -111,4 +111,25 @@ const displayProviders = (arr) => {
     }
 }
 
+// added some notes about what we discussed 10/30/23 -Jess
+// we decided to utilize a different API for matching user input zipcode to a city
+// city will get pushed into healthcare API for results
+// example API call:
+// http://ZiptasticAPI.com/23517
+
+document.querySelector("search-button").addEventListener("click", getZipcode);
+
+function getZipcode() {
+    var userZipcode = document.querySelector("#user-input").value;
+    if (userZipcode == null) {
+        const userError = document.createElement('p')
+        feedback.textContent = 'Please submit a zipcode';
+    } else{
+      // pull city matched from zipcode API run,
+      // add to API url as ${city}
+      // run new API call then push to 2nd API above
+  }
+}
+
+    
 
