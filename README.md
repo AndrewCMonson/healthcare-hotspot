@@ -3,7 +3,7 @@
 ## Project Breakdown
 
 Design team:
-[Kassandra Quintana](https://github.com/kassandraq), [Colin Rent](https://github.com/Crent99), and [Christine Thompson](https://github.com/tarheelz93)
+[Kassandra Quintana](https://github.com/kassandraq), [Colin Rent](https://github.com/Crent99)
 
 Functionality team:
 [Andrew Monson](https://github.com/AndrewCMonson) and [Jessica Scheck](https://github.com/Jessmica11)
