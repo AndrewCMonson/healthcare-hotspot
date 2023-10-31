@@ -34,7 +34,7 @@ const getCityState = (zipcode) =>{
 
 
 
-getCityState(29680)
+// getCityState(29680)
 
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
 const buildProviders = (data) => {
@@ -145,4 +145,8 @@ const displayProviders = (arr) => {
 // }
 
     
-
+document.querySelector('.search-button').addEventListener('click', e => {
+    e.preventDefault();
+    const userInput = document.querySelector('.search-input').value;
+    getCityState(userInput);
+})
