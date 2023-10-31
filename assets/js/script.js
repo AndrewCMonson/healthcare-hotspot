@@ -17,7 +17,7 @@ const getHealthInfo = (zipcode) => {
         // .then(responseJson => compareZips(1740903558, responseJson))        
 }
 
-
+// add event listener to grab search bar information and pass through getHealthInfo
 getHealthInfo(29680)
 
 
@@ -53,10 +53,35 @@ const displayProviders = (arr) => {
 
     if(arr.providerFirstName){
         console.log(arr.providerFirstName)
-        const newDiv = document.createElement('div');
-        testDiv.append(newDiv);
-        newDiv.textContent = arr.providerFirstName
-
+        const nameDiv = document.createElement('div');
+        testDiv.append(nameDiv);
+        nameDiv.textContent = `${arr.providerFirstName} ${arr.providerLastName}`
+        // const lastNameDiv = document.createElement('div');
+        // testDiv.append(lastNameDiv);
+        // lastNameDiv.textContent = arr.providerLastName
+    }if(!arr.providerFirstName){
+        const nameDiv = document.createElement('div');
+        testDiv.append(nameDiv);
+        nameDiv.textContent = `No name provided`;
+    }if(arr.providerAddressOne){
+        console.log(arr.providerAddressOne)
+        const addressDiv = document.createElement('div');
+        testDiv.append(addressDiv);
+        addressDiv.textContent = `${arr.providerAddressOne} ${arr.providerCity} ${arr.providerState} ${arr.providerZip}`;
+    }if(!arr.providerAddressOne){
+        const addressDiv = document.createElement('div');
+        testDiv.append(addressDiv);
+        addressDiv.textContent = `No Address Provided`;
+    }if(arr.providerAddressOne){
+        // console.log(arr.providerTelephone)
+        const telephoneDiv = document.createElement('div');
+        testDiv.append(telephoneDiv);
+        telephoneDiv.textContent = `${arr.providerTelephone}`;
+    }if(!arr.providerAddressOne){
+        // console.log(arr.providerTelephone)
+        const telephoneDiv = document.createElement('div');
+        testDiv.append(telephoneDiv);
+        telephoneDiv.textContent = `No Phone Number Provided`;
     }
     // const displayDiv = document.getElementById('display-div');
     // const newDiv = document.createElement('div');
