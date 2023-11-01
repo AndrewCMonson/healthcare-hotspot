@@ -31,11 +31,11 @@ THEN I am presented with multiple healthcare providers within my location range 
 ### MUST use 2 APIs
 
 API 1:
-[Zippopotamus](https://www.zippopotam.us/)
+[Ziptastic](https://www.ziptasticAPI.com/)
 
 API 2:
 [National Plan & Provider Enumeration System (NPPES) ](https://npiregistry.cms.hhs.gov/api-page)
 
 ### MUST use CSS framework other than Bootstrap
 
-Chosen CSS framework: [ ]()
+Chosen CSS framework: [Bulma](https://bulma.io/)
