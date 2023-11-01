@@ -17,7 +17,7 @@ const getHealthInfo = (city, state) => {
 
 // API call that takes in a zipcode and returns city and state information
 const getCityState = (zipcode) =>{
-    const url = `http://ZiptasticAPI.com/${zipcode}`;
+    const url = `https://ZiptasticAPI.com/${zipcode}`;
 
     fetch(url)
         .then(response => response.json())
