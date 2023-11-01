@@ -1,6 +1,6 @@
 # healthcare-hotspot
 
-!["Healthcare Hotspot" Demo](./assets/healthcare-hotspot-demo.gif)
+![Healthcare Hotspot Demo Gif](resources/healthcare-hotspot-demo.gif)
 
 ## Project Breakdown
 
