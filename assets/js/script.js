@@ -69,7 +69,7 @@ const displayProviders = (arr) => {
         console.log(arr.providerFirstName)
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerFirstName} ${arr.providerLastName}`
-        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-2', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
+        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
         addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         if(arr.providerAddressOne){
@@ -96,7 +96,7 @@ const displayProviders = (arr) => {
         const nameDiv = document.createElement('div');
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerOrgName}`;
-        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-2', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
+        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
         addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         if(arr.providerAddressOne){
