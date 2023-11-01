@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
     </head>
-    
-    <main>
-        <section class="hero is-info ">
-            <div class="hero-body is-flex is-justify-content-center is-flex-direction-column is-align-content-center">
-              <p class="title has-text-centered">
-                Healthcare Hotspot
-              </p>
-              <p class="subtitle has-text-centered">
-                Helping You Find The Right Care
-              </p>
+    <body>
+        <main>
+            <section class="hero is-info ">
+                <div class="hero-body is-flex is-justify-content-center is-flex-direction-column is-align-content-center">
+                <p class="title has-text-centered is-uppercase ">
+                    Healthcare Hotspot
+                </p>
+                <p class="subtitle has-text-centered">
+                    Helping You Find The Right Care
+                </p>
+                </div>
+            </section>
+            <div class="container">
+                <div class="field has-addons container is-justify-content-center pt-5">
+                    <div class="control">
+                    <input class="input search-input" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5">
+                    </div>
+                    <div class="control">
+                    <a class="button is-info search-button">
+                        Search
+                    </a>
+                    </div>
+                </div>
+                <div id="test-div" class="m-6 container is-flex  is-flex-wrap-wrap is-flex-grow-2 columns is-variable is-6"></div>
             </div>
-          </section>
-        <div class="container">
-            <div class="field has-addons container is-justify-content-center pt-5">
-                <div class="control">
-                  <input class="input search-input" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5">
+            <div class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                <div class="card">
+                    <div class="card-content">
+                    <div class="content modal-body">
+                        Please Enter A Valid ZipCode
+                    </div>
+                    </div>
                 </div>
-                <div class="control">
-                  <a class="button is-info search-button">
-                    Search
-                  </a>
                 </div>
-              </div>
-            <div id="test-div" class="m-6 container is-flex  is-flex-wrap-wrap is-flex-grow-2"><!--name is displayed here--></div>
-        </div>
-        <div class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-              <!-- Any other Bulma elements you want -->
-              <div class="card">
-                <div class="card-content">
-                  <div class="content modal-body">
-                    Please Enter A Valid ZipCode
-                  </div>
-                </div>
-              </div>
+                <button class="modal-close is-large" aria-label="close"></button>
             </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-          </div>
-    </main>
-    <footer class="footer">
-        <div class="content has-text-centered">
-          <p>
-            <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-          </p>
-        </div>
-      </footer>
+        </main>
+        <footer class="footer p-0 is-flex is-flex-direction-column is-justify-content-center">
+            <div class="content has-text-centered ">
+            <p>
+                <strong>Healthcare Hotspot</strong> by Andrew Monson, Jessica Scheck, Kassandra Quintana and Collin Rent</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. 
+            </p>
+            </div>
+        </footer>
+    </body>
     <script src="./assets/js/script.js" defer></script>
 </html>
