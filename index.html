@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    
+    <main class="m-6">
+        <div>
+            <div class="field has-addons">
+                <div class="control">
+                  <input class="input search-input" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5">
+                </div>
+                <div class="control">
+                  <a class="button is-info search-button">
+                    Search
+                  </a>
+                </div>
+              </div>
+            <div id="test-div" class="columns"><!--name is displayed here--></div>
+        </div>
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <!-- Any other Bulma elements you want -->
+              <div class="card">
+                <div class="card-content">
+                  <div class="content modal-body">
+                    Please Enter A Valid ZipCode
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+
+    </main>
+    
+    
+    <p id="test-para"></p>
+    <script src="./assets/js/script.js" defer></script>
+</html>
