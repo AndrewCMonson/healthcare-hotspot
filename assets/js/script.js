@@ -139,6 +139,7 @@ document.querySelector('.search-input').addEventListener('keypress', e => {
     }
 })
 
+// modal management script provided by Bulma
 document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
     const openModal = ($el) => {
