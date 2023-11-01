@@ -68,9 +68,9 @@ const displayProviders = (arr) => {
         console.log(arr.providerFirstName)
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerFirstName} ${arr.providerLastName}`
-        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'is-flex-grow-0', 'is-flex', 'is-flex-direction-column');
-        addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered')
-        telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered')
+        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-2', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
+        addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
+        telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         if(arr.providerAddressOne){
             console.log(arr.providerAddressOne);
             nameDiv.append(addressDiv);
@@ -95,9 +95,9 @@ const displayProviders = (arr) => {
         const nameDiv = document.createElement('div');
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerOrgName}`;
-        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'is-flex-grow-0', 'is-flex', 'is-flex-direction-column');
-        addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered')
-        telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered')
+        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-2', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
+        addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
+        telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         if(arr.providerAddressOne){
             console.log(arr.providerAddressOne);
             nameDiv.append(addressDiv);
