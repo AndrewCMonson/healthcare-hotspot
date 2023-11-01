@@ -45,6 +45,7 @@ const buildProviders = (data) => {
             providerState: currentProvider.addresses[1].state,
             providerZip:currentProvider.addresses[1].postal_code,
             providerTelephone: currentProvider.addresses[1].telephone_number,
+            providerSpecialty: currentProvider.taxonomies[0].desc
         }
 
         providerArr.push(providerInfo);
