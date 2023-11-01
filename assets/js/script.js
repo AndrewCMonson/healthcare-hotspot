@@ -68,9 +68,13 @@ const buildProviders = (data) => {
 const displayProviders = (arr) => {
     console.log(arr);
     const testDiv = document.getElementById('test-div');
-    const nameDiv = document.createElement('div');
-    const addressDiv = document.createElement('div');
-    const telephoneDiv = document.createElement('div');
+    const nameDiv = document.createElement('div')
+    const addressDiv = document.createElement('div')
+    const telephoneDiv = document.createElement('div')
+    nameDiv.className = 'temp-div';
+    addressDiv.className = 'temp-div';
+    telephoneDiv.className = 'temp-div';
+    
 
     // nameDiv.className = 'column'
     // console.log(arr.providerFirstName)
@@ -79,6 +83,9 @@ const displayProviders = (arr) => {
         console.log(arr.providerFirstName)
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerFirstName} ${arr.providerLastName}`
+        nameDiv.className = 'temp-div';
+        addressDiv.className = 'temp-div';
+        telephoneDiv.className = 'temp-div';
         if(arr.providerAddressOne){
             console.log(arr.providerAddressOne);
             nameDiv.append(addressDiv);
@@ -103,6 +110,9 @@ const displayProviders = (arr) => {
         const nameDiv = document.createElement('div');
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerOrgName}`;
+        nameDiv.className = 'temp-div';
+        addressDiv.className = 'temp-div';
+        telephoneDiv.className = 'temp-div';
         if(arr.providerAddressOne){
             console.log(arr.providerAddressOne);
             nameDiv.append(addressDiv);
@@ -124,29 +134,34 @@ const displayProviders = (arr) => {
     }
 }
 
-// added some notes about what we discussed 10/30/23 -Jess
-// we decided to utilize a different API for matching user input zipcode to a city
-// city will get pushed into healthcare API for results
-// example API call:
-// http://ZiptasticAPI.com/23517
-
-// document.querySelector("search-button").addEventListener("click", getZipcode);
-
-// function getZipcode() {
-//     var userZipcode = document.querySelector("#user-input").value;
-//     if (userZipcode == null) {
-//         const feedback = document.createElement('p')
-//         feedback.textContent = 'Please submit a zipcode';
-//     } else{
-//       // pull city matched from zipcode API run,
-//       // add to API url as ${city}
-//       // run new API call then push to 2nd API above
-//   }
-// }
-
-    
+// Two event listeners that capture user input and  start the chain of API calls and function calls 
 document.querySelector('.search-button').addEventListener('click', e => {
     e.preventDefault();
     const userInput = document.querySelector('.search-input').value;
+    
+    // const convertedInput = parseInt(userInput);
+    // console.log(typeof convertedInput)
+    // console.log(convertedInput);
+    deleteDivs();
     getCityState(userInput);
+    
 })
+
+document.querySelector('.search-input').addEventListener('keypress', e => {
+    
+    if(e.key === 'Enter'){
+        e.preventDefault();
+        document.querySelector('.search-button').click();
+    }
+})
+
+// const showZipModal = () => {
+//     const modal = document.querySelector('.modal');
+//     modal.setAttribute('class', 'is-active')
+// }
+
+// function that deletes existing information and allows for divs to be repopulated
+const deleteDivs = () => {
+    const deletedDiv = document.getElementById('test-div');
+    deletedDiv.innerHTML = '';
+}

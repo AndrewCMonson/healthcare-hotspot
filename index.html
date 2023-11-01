@@ -10,7 +10,7 @@
         <div>
             <div class="field has-addons">
                 <div class="control">
-                  <input class="input search-input" type="text" placeholder="Enter Zipcode">
+                  <input class="input search-input" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5">
                 </div>
                 <div class="control">
                   <a class="button is-info search-button">
@@ -20,6 +20,13 @@
               </div>
             <div id="test-div" class="columns"><!--name is displayed here--></div>
         </div>
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <!-- Any other Bulma elements you want -->
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
 
     </main>
     
