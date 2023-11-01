@@ -6,9 +6,19 @@
 
     </head>
     
-    <main class="m-6">
-        <div>
-            <div class="field has-addons">
+    <main>
+        <section class="hero is-info ">
+            <div class="hero-body is-flex is-justify-content-center is-flex-direction-column is-align-content-center">
+              <p class="title has-text-centered">
+                Healthcare Hotspot
+              </p>
+              <p class="subtitle has-text-centered">
+                Helping You Find The Right Care
+              </p>
+            </div>
+          </section>
+        <div class="container">
+            <div class="field has-addons container is-justify-content-center pt-5">
                 <div class="control">
                   <input class="input search-input" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5">
                 </div>
@@ -18,7 +28,7 @@
                   </a>
                 </div>
               </div>
-            <div id="test-div" class="columns"><!--name is displayed here--></div>
+            <div id="test-div" class="m-6 container is-flex  is-flex-wrap-wrap is-flex-grow-2"><!--name is displayed here--></div>
         </div>
         <div class="modal">
             <div class="modal-background"></div>
@@ -34,10 +44,15 @@
             </div>
             <button class="modal-close is-large" aria-label="close"></button>
           </div>
-
     </main>
-    
-    
-    <p id="test-para"></p>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </footer>
     <script src="./assets/js/script.js" defer></script>
 </html>

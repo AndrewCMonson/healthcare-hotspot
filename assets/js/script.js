@@ -18,12 +18,6 @@ const getHealthInfo = (city, state) => {
         .catch(err => showZipModal(err))      
 }
 
-
-
-// add event listener to grab search bar information and pass through getHealthInfo
-// getHealthInfo('Greenville', 'SC');
-
-
 // API call that takes in a zipcode and returns city and state information
 const getCityState = (zipcode) =>{
     const url = `http://ZiptasticAPI.com/${zipcode}`;
@@ -33,10 +27,6 @@ const getCityState = (zipcode) =>{
         .then(responseJSON => getHealthInfo(responseJSON.city, responseJSON.state))
         .catch(err => showZipModal(err))
 }
-
-
-
-// getCityState(29680)
 
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
 const buildProviders = (data) => {
@@ -78,9 +68,9 @@ const displayProviders = (arr) => {
         console.log(arr.providerFirstName)
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerFirstName} ${arr.providerLastName}`
-        nameDiv.className = 'temp-div';
-        addressDiv.className = 'temp-div';
-        telephoneDiv.className = 'temp-div';
+        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half');
+        addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered')
+        telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered')
         if(arr.providerAddressOne){
             console.log(arr.providerAddressOne);
             nameDiv.append(addressDiv);
@@ -105,9 +95,9 @@ const displayProviders = (arr) => {
         const nameDiv = document.createElement('div');
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerOrgName}`;
-        nameDiv.className = 'temp-div';
-        addressDiv.className = 'temp-div';
-        telephoneDiv.className = 'temp-div';
+        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half');
+        addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered')
+        telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered')
         if(arr.providerAddressOne){
             console.log(arr.providerAddressOne);
             nameDiv.append(addressDiv);
@@ -205,4 +195,4 @@ document.addEventListener('DOMContentLoaded', () => {
         closeAllModals();
       }
     });
-  });
+});
