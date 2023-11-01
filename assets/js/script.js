@@ -11,10 +11,7 @@ const getHealthInfo = (city, state) => {
     fetch(url)
         // returns api response, converts to JSON then stores JSON data into variable
         .then(response => response.json())
-        // .then(responseJson => testDisplay(responseJson))
-        // .then(responseJson => console.log(responseJson.results))
-        .then(responseJson => buildProviders(responseJson.results))
-        // .then(responseJson => compareZips(1740903558, responseJson))  
+        .then(responseJson => buildProviders(responseJson.results))  
         .catch(err => showZipModal(err))      
 }
 
@@ -34,7 +31,6 @@ const buildProviders = (data) => {
 
     for(let i = 0; i < data.length; i++){
         const currentProvider = data[i];
-        // console.log(data[i])
 
         const providerInfo = {
             providerOrgName: currentProvider.basic.organization_name,
@@ -43,14 +39,13 @@ const buildProviders = (data) => {
             providerAddressOne: currentProvider.addresses[1].address_1,
             providerCity: currentProvider.addresses[1].city,
             providerState: currentProvider.addresses[1].state,
-            providerZip:currentProvider.addresses[1].postal_code,
+            providerZip: currentProvider.addresses[1].postal_code,
             providerTelephone: currentProvider.addresses[1].telephone_number,
             providerSpecialty: currentProvider.taxonomies[0].desc
         }
 
         providerArr.push(providerInfo);
     }
-    // console.log(providerArr);
 
     providerArr.forEach(displayProviders);
 }
@@ -59,40 +54,33 @@ const buildProviders = (data) => {
 // If there is no first name, it uses the org name and publishes the rest of the information accordingly
 // This is used by a forEach method within the object array constructor function (buildProvider)
 const displayProviders = (arr) => {
-    console.log(arr);
     const testDiv = document.getElementById('test-div');
     const nameDiv = document.createElement('div')
     const addressDiv = document.createElement('div')
     const telephoneDiv = document.createElement('div')
 
     if(arr.providerFirstName){
-        console.log(arr.providerFirstName)
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerFirstName} ${arr.providerLastName}`
         nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
         addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         if(arr.providerAddressOne){
-            console.log(arr.providerAddressOne);
             nameDiv.append(addressDiv);
-            addressDiv.textContent = `${arr.providerAddressOne} ${arr.providerCity} ${arr.providerState} ${arr.providerZip}`;
+            addressDiv.textContent = `${arr.providerAddressOne} ${arr.providerCity} ${arr.providerState}, ${arr.providerZip.slice(0, -4)}`;
         }else {
             nameDiv.append(addressDiv);
             addressDiv.textContent = `No Address Provided`;
         }
         if(arr.providerTelephone){
-            console.log(arr.providerTelephone)
             nameDiv.append(telephoneDiv);
             telephoneDiv.textContent = `${arr.providerTelephone}`;
         }else {
-            console.log(arr.providerTelephone)
-            
             nameDiv.append(telephoneDiv);
             telephoneDiv.textContent = `No Phone Number Provided`;
         }
     } 
     else {
-        console.log(arr.providerOrgName)
         const nameDiv = document.createElement('div');
         testDiv.append(nameDiv);
         nameDiv.textContent = `${arr.providerOrgName}`;
@@ -100,20 +88,16 @@ const displayProviders = (arr) => {
         addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         if(arr.providerAddressOne){
-            console.log(arr.providerAddressOne);
             nameDiv.append(addressDiv);
-            addressDiv.textContent = `${arr.providerAddressOne} ${arr.providerCity} ${arr.providerState} ${arr.providerZip}`;
+            addressDiv.textContent = `${arr.providerAddressOne} ${arr.providerCity} ${arr.providerState}, ${arr.providerZip.slice(0, -4)}`;
         }else {
             nameDiv.append(addressDiv);
             addressDiv.textContent = `No Address Provided`;
         }
         if(arr.providerTelephone){
-            console.log(arr.providerTelephone)
             nameDiv.append(telephoneDiv);
             telephoneDiv.textContent = `${arr.providerTelephone}`;
         }else {
-            console.log(arr.providerTelephone)
-            
             nameDiv.append(telephoneDiv);
             telephoneDiv.textContent = `No Phone Number Provided`;
         }
