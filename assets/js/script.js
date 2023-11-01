@@ -14,7 +14,8 @@ const getHealthInfo = (city, state) => {
         // .then(responseJson => testDisplay(responseJson))
         // .then(responseJson => console.log(responseJson.results))
         .then(responseJson => buildProviders(responseJson.results))
-        // .then(responseJson => compareZips(1740903558, responseJson))        
+        // .then(responseJson => compareZips(1740903558, responseJson))  
+        .catch(err => showZipModal(err))      
 }
 
 
@@ -30,6 +31,7 @@ const getCityState = (zipcode) =>{
     fetch(url)
         .then(response => response.json())
         .then(responseJSON => getHealthInfo(responseJSON.city, responseJSON.state))
+        .catch(err => showZipModal(err))
 }
 
 
@@ -71,13 +73,6 @@ const displayProviders = (arr) => {
     const nameDiv = document.createElement('div')
     const addressDiv = document.createElement('div')
     const telephoneDiv = document.createElement('div')
-    nameDiv.className = 'temp-div';
-    addressDiv.className = 'temp-div';
-    telephoneDiv.className = 'temp-div';
-    
-
-    // nameDiv.className = 'column'
-    // console.log(arr.providerFirstName)
 
     if(arr.providerFirstName){
         console.log(arr.providerFirstName)
@@ -134,34 +129,80 @@ const displayProviders = (arr) => {
     }
 }
 
-// Two event listeners that capture user input and  start the chain of API calls and function calls 
-document.querySelector('.search-button').addEventListener('click', e => {
-    e.preventDefault();
-    const userInput = document.querySelector('.search-input').value;
-    
-    // const convertedInput = parseInt(userInput);
-    // console.log(typeof convertedInput)
-    // console.log(convertedInput);
-    deleteDivs();
-    getCityState(userInput);
-    
-})
 
-document.querySelector('.search-input').addEventListener('keypress', e => {
-    
-    if(e.key === 'Enter'){
-        e.preventDefault();
-        document.querySelector('.search-button').click();
-    }
-})
-
-// const showZipModal = () => {
-//     const modal = document.querySelector('.modal');
-//     modal.setAttribute('class', 'is-active')
-// }
+// function to show warning modal
+const showZipModal = () => {
+    const modal = document.querySelector('.modal');
+    // const modalBody = document.querySelector('.modal-body')
+    modal.classList.add('is-active');
+    // modalBody.textContent = err
+}
 
 // function that deletes existing information and allows for divs to be repopulated
 const deleteDivs = () => {
     const deletedDiv = document.getElementById('test-div');
     deletedDiv.innerHTML = '';
 }
+
+document.querySelector('.search-input').addEventListener('keypress', e => {
+    if(isNaN(e.key) && e.key !== 'Backspace'){
+        e.preventDefault()
+    }
+})
+
+// Two event listeners that capture user input and  start the chain of API calls and function calls 
+document.querySelector('.search-button').addEventListener('click', e => {
+    const userInput = document.querySelector('.search-input').value;
+    deleteDivs();
+    getCityState(userInput);
+})
+
+document.querySelector('.search-input').addEventListener('keypress', e => {
+    if(e.key === 'Enter'){
+        e.preventDefault();
+        document.querySelector('.search-button').click();
+    }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Functions to open and close a modal
+    const openModal = ($el) => {
+      $el.classList.add('is-active');
+    }
+  
+    const closeModal = ($el) => {
+      $el.classList.remove('is-active');
+    }
+  
+    const closeAllModals = () => {
+      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+  
+    // Add a click event on buttons to open a specific modal
+    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+      const modal = $trigger.dataset.target;
+      const $target = document.getElementById(modal);
+  
+      $trigger.addEventListener('click', () => {
+        openModal($target);
+      });
+    });
+  
+    // Add a click event on various child elements to close the parent modal
+    (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+      const $target = $close.closest('.modal');
+  
+      $close.addEventListener('click', () => {
+        closeModal($target);
+      });
+    });
+  
+    // Add a keyboard event to close all modals
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'Escape') {
+        closeAllModals();
+      }
+    });
+  });
