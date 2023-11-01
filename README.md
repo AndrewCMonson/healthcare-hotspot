@@ -1,5 +1,7 @@
 # healthcare-hotspot
 
+!["Healthcare Hotspot" Demo](./assets/healthcare-hotspot-demo.gif)
+
 ## Project Breakdown
 
 Design team:
