@@ -1,3 +1,6 @@
+* {
+    font-family: 'Archivo Narrow', sans-serif;
+}
 body {
     min-height: 100vh;
     display: flex;
@@ -9,10 +12,7 @@ footer {
     height: 10vh;
 }
 
-.temp-div {
-    margin: 5px;
+.title {
+    font-family: 'Julius Sans One', sans-serif;
 }
 
-.inputs {
-    width: 100%
-}
