@@ -1,18 +1,14 @@
 
-// this is a sample api fetch that returns 200 results based on a zipcode entered.
-// example of API url call
-//https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1& +postal_code + =$ +zipcode + &pretty=on&limit=10
-
 const getHealthInfo = (city, state) => {
-    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&&city=${city}&state=${state}&pretty=on&limit=500`;
-    // let responseData = null
+    const taxonomy = getProviderSelection();
+    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&&city=${city}&state=${state}&pretty=on&limit=200&taxonomy_description=${taxonomy}`;
     
 
     fetch(url)
         // returns api response, converts to JSON then stores JSON data into variable
         .then(response => response.json())
         .then(responseJson => buildProviders(responseJson.results))  
-        .catch(err => showZipModal(err))      
+        .catch(err => showZipModal(err)) 
 }
 
 // API call that takes in a zipcode and returns city and state information
@@ -28,6 +24,7 @@ const getCityState = (zipcode) =>{
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
 const buildProviders = (data) => {
     const providerArr = [];
+    console.log('>>this is the length of the data', data.length)
 
     for(let i = 0; i < data.length; i++){
         const currentProvider = data[i];
@@ -43,38 +40,36 @@ const buildProviders = (data) => {
             providerTelephone: currentProvider.addresses[1].telephone_number,
             providerSpecialty: currentProvider.taxonomies[0].desc
         }
-        console.log(providerInfo.providerSpecialty)
         providerArr.push(providerInfo);
     }
-
-    providerArr.forEach(displayProviders);
+    providerArr.forEach(getProviderType);
 }
 
 // This function takes in an array of objects and publishes select information to the DOM based on if the provided arr contains a provider first name or not
 // If there is no first name, it uses the org name and publishes the rest of the information accordingly
 // This is used by a forEach method within the object array constructor function (buildProvider)
-const displayProviders = (arr) => {
+const displayProviders = (obj) => {
     const testDiv = document.getElementById('test-div');
     const nameDiv = document.createElement('div')
     const addressDiv = document.createElement('div')
     const telephoneDiv = document.createElement('div')
 
-    if(arr.providerFirstName){
+    if(obj.providerFirstName){
         testDiv.append(nameDiv);
-        nameDiv.textContent = `${arr.providerFirstName} ${arr.providerLastName}`
+        nameDiv.textContent = `${obj.providerFirstName} ${obj.providerLastName}`
         nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
         addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
-        if(arr.providerAddressOne){
+        if(obj.providerAddressOne){
             nameDiv.append(addressDiv);
-            addressDiv.textContent = `${arr.providerAddressOne} ${arr.providerCity} ${arr.providerState}, ${arr.providerZip.slice(0, -4)}`;
+            addressDiv.textContent = `${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}`;
         }else {
             nameDiv.append(addressDiv);
             addressDiv.textContent = `No Address Provided`;
         }
-        if(arr.providerTelephone){
+        if(obj.providerTelephone){
             nameDiv.append(telephoneDiv);
-            telephoneDiv.textContent = `${arr.providerTelephone}`;
+            telephoneDiv.textContent = `${obj.providerTelephone}`;
         }else {
             nameDiv.append(telephoneDiv);
             telephoneDiv.textContent = `No Phone Number Provided`;
@@ -83,20 +78,20 @@ const displayProviders = (arr) => {
     else {
         const nameDiv = document.createElement('div');
         testDiv.append(nameDiv);
-        nameDiv.textContent = `${arr.providerOrgName}`;
+        nameDiv.textContent = `${obj.providerOrgName}`;
         nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
         addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
-        if(arr.providerAddressOne){
+        if(obj.providerAddressOne){
             nameDiv.append(addressDiv);
-            addressDiv.textContent = `${arr.providerAddressOne} ${arr.providerCity} ${arr.providerState}, ${arr.providerZip.slice(0, -4)}`;
+            addressDiv.textContent = `${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}`;
         }else {
             nameDiv.append(addressDiv);
             addressDiv.textContent = `No Address Provided`;
         }
-        if(arr.providerTelephone){
+        if(obj.providerTelephone){
             nameDiv.append(telephoneDiv);
-            telephoneDiv.textContent = `${arr.providerTelephone}`;
+            telephoneDiv.textContent = `${obj.providerTelephone}`;
         }else {
             nameDiv.append(telephoneDiv);
             telephoneDiv.textContent = `No Phone Number Provided`;
@@ -128,6 +123,7 @@ document.querySelector('.search-input').addEventListener('keypress', e => {
 // Two event listeners that capture user input and  start the chain of API calls and function calls 
 document.querySelector('.search-button').addEventListener('click', e => {
     const userInput = document.querySelector('.search-input').value;
+    // getProviderSelection();
     deleteDivs();
     getCityState(userInput);
 })
@@ -182,3 +178,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 });
+
+// TODO write a function that iterates through all objects in an array of providers to find their chosen specialty
+
+const getProviderSelection = () => {
+    const selectionValue = document.querySelector('.option-selection').value;
+    return selectionValue;
+}
+
+const getProviderType = (obj) => {
+    const selectionValue = document.querySelector('.option-selection').value;
+    const chooseProvider = 'Choose Type of Provider'
+
+    if(selectionValue != chooseProvider){
+        if(obj.providerSpecialty === selectionValue){
+            console.log(obj)
+            displayProviders(obj);
+        } 
+    }else {
+        const modal = document.querySelector('.modal');
+        const modalPara = document.querySelector('.modal-body');
+        modalPara.textContent = 'Please select a provider type'
+        modal.classList.add('is-active')
+    }
+    
+}

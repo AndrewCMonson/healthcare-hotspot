@@ -7,7 +7,7 @@
 
     </head>
     <body>
-        <main>
+        <main class="is-flex is-flex-direction-column is-centered is-align-content-center">
             <section class="hero is-info ">
                 <div class="hero-body is-flex is-justify-content-center is-flex-direction-column is-align-content-center">
                 <p class="title has-text-centered is-uppercase is-size-1">
@@ -19,7 +19,7 @@
                 </div>
             </section>
             
-            <div class="inputs is-full-width container columns is-flex is-flex-direction-column">
+            <div class="inputs  is-full-width  columns is-centered is-flex is-flex-direction-column">
                 <div class="field has-addons container is-justify-content-center pt-5 column">
                     <div class="control">
                     <input class="input search-input" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5" name="search-button">
@@ -32,15 +32,16 @@
                     
                 </div>
                 <div class="select container selection-list column">
-                    <select class="container">
-                      <option>Select dropdown</option>
-                      <option>With options</option>
-                      <option>With options</option>
-                      <option>With options</option>
+                    <select class="container option-selection">
+                      <option>Choose Type of Provider</option>
+                      <option id="family-med">Family Medicine</option>
+                      <option id="pharmacy">Pharmacy</option>
+                      <option id="Counselor">Counselor</option>
+                      <option id="dentist">Dentist</option>
                     </select>
                 </div>
                 <!-- <div>Testing</div> -->
-                <div id="test-div" class="m-6 container is-flex  is-flex-wrap-wrap is-flex-grow-2 columns is-variable is-6 is-justify-content-space-around is-align-content-center"></div>
+                <div id="test-div" class="m-6 is-flex  is-flex-wrap-wrap is-flex-grow-2 columns is-variable is-6 is-justify-content-space-around is-align-content-center"></div>
                 <div class="hidden"></div>
             </div>
             <div class="modal">
