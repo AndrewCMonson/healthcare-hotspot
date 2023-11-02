@@ -24,6 +24,8 @@ const getCityState = (zipcode) =>{
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
 const buildProviders = (data) => {
     const providerArr = [];
+    console.log(providerArr)
+    console.log(data)
 
     for(let i = 0; i < data.length; i++){
         const currentProvider = data[i];
@@ -32,16 +34,19 @@ const buildProviders = (data) => {
             providerOrgName: currentProvider.basic.organization_name,
             providerFirstName: currentProvider.basic.first_name,
             providerLastName: currentProvider.basic.last_name,
-            providerAddressOne: currentProvider.addresses[1].address_1,
-            providerCity: currentProvider.addresses[1].city,
-            providerState: currentProvider.addresses[1].state,
-            providerZip: currentProvider.addresses[1].postal_code,
-            providerTelephone: currentProvider.addresses[1].telephone_number,
+            providerAddressOne: currentProvider.addresses[0].address_1,
+            providerCity: currentProvider.addresses[0].city,
+            providerState: currentProvider.addresses[0].state,
+            providerZip: currentProvider.addresses[0].postal_code,
+            providerTelephone: currentProvider.addresses[0].telephone_number,
             providerSpecialty: currentProvider.taxonomies[0].desc
         }
         providerArr.push(providerInfo);
     }
-    providerArr.forEach(getProviderType);
+    if(providerArr.length > -1){
+        providerArr.forEach(getProviderType);
+    }
+    
 }
 
 // This function takes in an array of objects and publishes select information to the DOM based on if the provided arr contains a provider first name or not
@@ -191,7 +196,7 @@ const getProviderType = (obj) => {
     const chooseProvider = ''
 
     if(userSelection != chooseProvider){
-        if(obj.providerSpecialty === userSelection){
+        if(obj.providerSpecialty.includes(userSelection)){
             displayProviders(obj);
         } 
     }else {
