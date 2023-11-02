@@ -1,6 +1,6 @@
 
 const getHealthInfo = (city, state) => {
-    const taxonomy = getProviderSelection();
+    const taxonomy = getUserProviderTypeSelection();
     const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&&city=${city}&state=${state}&pretty=on&limit=200&taxonomy_description=${taxonomy}`;
     
 
@@ -101,7 +101,7 @@ const displayProviders = (obj) => {
 
 
 // function to show warning modal
-const showZipModal = () => {
+const showZipModal = (err) => {
     const modal = document.querySelector('.modal');
     // const modalBody = document.querySelector('.modal-body')
     modal.classList.add('is-active');
@@ -123,7 +123,7 @@ document.querySelector('.search-input').addEventListener('keypress', e => {
 // Two event listeners that capture user input and  start the chain of API calls and function calls 
 document.querySelector('.search-button').addEventListener('click', e => {
     const userInput = document.querySelector('.search-input').value;
-    // getProviderSelection();
+    // getUserProviderTypeSelection();
     deleteDivs();
     getCityState(userInput);
 })
@@ -179,20 +179,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// TODO write a function that iterates through all objects in an array of providers to find their chosen specialty
 
-const getProviderSelection = () => {
+// function used to grab user selection from the DOM
+const getUserProviderTypeSelection = () => {
     const selectionValue = document.querySelector('.option-selection').value;
     return selectionValue;
 }
 
+// function used to 
 const getProviderType = (obj) => {
-    const selectionValue = document.querySelector('.option-selection').value;
-    const chooseProvider = 'Choose Type of Provider'
+    const userSelection = getUserProviderTypeSelection();
+    const chooseProvider = ''
 
-    if(selectionValue != chooseProvider){
-        if(obj.providerSpecialty === selectionValue){
-            console.log(obj)
+    if(userSelection != chooseProvider){
+        if(obj.providerSpecialty === userSelection){
             displayProviders(obj);
         } 
     }else {
