@@ -24,8 +24,6 @@ const getCityState = (zipcode) =>{
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
 const buildProviders = (data) => {
     const providerArr = [];
-    console.log(providerArr)
-    console.log(data)
 
     for(let i = 0; i < data.length; i++){
         const currentProvider = data[i];
@@ -53,7 +51,7 @@ const buildProviders = (data) => {
 // If there is no first name, it uses the org name and publishes the rest of the information accordingly
 // This is used by a forEach method within the object array constructor function (buildProvider)
 const displayProviders = (obj) => {
-    const testDiv = document.getElementById('test-div');
+    const testDiv = document.getElementById('content-div');
     const nameDiv = document.createElement('div')
     const addressDiv = document.createElement('div')
     const telephoneDiv = document.createElement('div')
@@ -114,7 +112,7 @@ const showZipModal = (err) => {
 
 // function that deletes existing information and allows for divs to be repopulated
 const deleteDivs = () => {
-    const deletedDiv = document.getElementById('test-div');
+    const deletedDiv = document.getElementById('content-div');
     deletedDiv.innerHTML = '';
 }
 
