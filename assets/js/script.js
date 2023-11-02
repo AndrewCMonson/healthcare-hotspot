@@ -4,7 +4,7 @@
 //https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1& +postal_code + =$ +zipcode + &pretty=on&limit=10
 
 const getHealthInfo = (city, state) => {
-    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&&city=${city}&state=${state}&pretty=on&limit=10`;
+    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&&city=${city}&state=${state}&pretty=on&limit=500`;
     // let responseData = null
     
 
@@ -43,7 +43,7 @@ const buildProviders = (data) => {
             providerTelephone: currentProvider.addresses[1].telephone_number,
             providerSpecialty: currentProvider.taxonomies[0].desc
         }
-
+        console.log(providerInfo.providerSpecialty)
         providerArr.push(providerInfo);
     }
 
