@@ -24,7 +24,6 @@ const getCityState = (zipcode) =>{
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
 const buildProviders = (data) => {
     const providerArr = [];
-    console.log('>>this is the length of the data', data.length)
 
     for(let i = 0; i < data.length; i++){
         const currentProvider = data[i];
@@ -62,14 +61,14 @@ const displayProviders = (obj) => {
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         if(obj.providerAddressOne){
             nameDiv.append(addressDiv);
-            addressDiv.textContent = `${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}`;
+            addressDiv.innerHTML = `<a target=_blank href="https://www.google.com/maps/place/${obj.providerAddressOne}+${obj.providerCity}+${obj.providerState}+${obj.providerZip.slice(0, -4)}">${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}</a>`;
         }else {
             nameDiv.append(addressDiv);
             addressDiv.textContent = `No Address Provided`;
         }
         if(obj.providerTelephone){
             nameDiv.append(telephoneDiv);
-            telephoneDiv.textContent = `${obj.providerTelephone}`;
+            telephoneDiv.innerHTML = `<a href="tel:+${obj.providerTelephone}">${obj.providerTelephone}</a>`;
         }else {
             nameDiv.append(telephoneDiv);
             telephoneDiv.textContent = `No Phone Number Provided`;
@@ -84,14 +83,14 @@ const displayProviders = (obj) => {
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
         if(obj.providerAddressOne){
             nameDiv.append(addressDiv);
-            addressDiv.textContent = `${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}`;
+            addressDiv.innerHTML = `<a target=_blank href="https://www.google.com/maps/place/${obj.providerAddressOne}+${obj.providerCity}+${obj.providerState}+${obj.providerZip.slice(0, -4)}">${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}</a>`;
         }else {
             nameDiv.append(addressDiv);
             addressDiv.textContent = `No Address Provided`;
         }
         if(obj.providerTelephone){
             nameDiv.append(telephoneDiv);
-            telephoneDiv.textContent = `${obj.providerTelephone}`;
+            telephoneDiv.innerHTML = `<a href="tel:+${obj.providerTelephone}">${obj.providerTelephone}</a>`;
         }else {
             nameDiv.append(telephoneDiv);
             telephoneDiv.textContent = `No Phone Number Provided`;
