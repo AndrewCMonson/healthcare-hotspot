@@ -26,6 +26,10 @@ footer {
     height: 10vh;
 }
 
+figure {
+    margin-top: -10px;
+}
+
 .box {
     margin: 5px;
 }
@@ -36,4 +40,14 @@ footer {
 
 .subtitle {
     color: #fff;
+}
+
+.medical-logo {
+    height: 75px;
+    width: 75px;
+    border-radius: 10%;
+}
+
+.hero-body {
+    padding: 1.5rem;
 }
