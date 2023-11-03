@@ -1,3 +1,10 @@
+/*simplified css with root variables*/
+:root {
+    --background-color: #1d76a9;
+    --font-color: #fff;
+    --button-hover-color: #729d00;
+}
+
 * {
     box-sizing:border-box;
     margin: 0;
@@ -5,17 +12,35 @@
     font-family: 'Archivo Narrow', sans-serif;
 }
 
-nav {
-    height: 80px;
-    background: #3e8ed0;
+img {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0rem calc((100vw - 1300px) / 2);
+    flex-direction: column;
+    border-radius: 30px;
+
 }
 
-h1 {
-    font-size: 5rem;
+button {
+    padding: 1rem 3rem;
+    margin: 1rem;
+    font-size: 1.25rem;
+    border: none;
+    color: #000;
+    background: #FFF;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+button:hover {
+    position: relative;
+    bottom: 1px;
+    left: 1px;
+    background-color: var(--button-hover-color);
+    color: var(--font-color);
+}
+
+footer {
+    margin-top: auto;
+    height: 10vh;
 }
 
 .logo {
@@ -26,25 +51,15 @@ h1 {
     padding: 0 2 rem;
 }
 
-nav a {
-    text-decoration: none;
-    color: #FFFFFF;
-    padding: 0 1.5rem;
-}
-
-nav a:hover {
-    color: #FFFFFF;
-}
-
 .hero {
-    background: #3e8ed0;
+    background: var(--background-color);
 }
 
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 90vh;
-    padding: 3rem calc((100vw - 1300px) /2);
+    padding: 2.25rem calc((100vw - 1300px) /2);
 }
 
 .column-left {
@@ -52,7 +67,7 @@ nav a:hover {
     flex-direction:column;
     justify-content: center;
     align-items: flex-start;
-    color: #FFFFFF;
+    color: var(--font-color);
     padding: 0rem 2rem;
 }
 
@@ -67,36 +82,11 @@ nav a:hover {
     line-height: 1.5;
 }
 
-button {
-    padding: 1rem 3rem;
-    font-size: 1rem;
-    border: none;
-    color: #3e8ed0;
-    background: #FFFFFF;
-    cursor: pointer;
-    border-radius: 50px;
-}
-
-button a {
-    color: #3e8ed0;
-}
-
-button:hover {
-    position: relative;
-    bottom: 1px;
-    left: 1px;
-}
-
 .column-right {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0rem 2rem;
-}
-
-.hero-image {
-    width: 100%;
-    height: 100%;
 }
 
 @media screen and (max-width: 768px) {
