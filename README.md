@@ -1,5 +1,7 @@
 # healthcare-hotspot
 
+[View on GitHub Page](https://andrewcmonson.github.io/healthcare-hotspot/)
+
 An overall demo of our app:
 ![Healthcare Hotspot Demo Gif](./resources/healthcare-hotspot-demo.gif)
 
