@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Julius+Sans+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Healthcare Hotspot</title>
+    </head>
+    <body class="has-background-dark">
+        <main class="is-flex is-flex-direction-column is-centered is-align-content-center ">
+            <section class="hero is-info ">
+                <div class="hero-body is-flex is-justify-content-center is-flex-direction-column is-align-content-center">
+                <p class="title has-text-centered is-uppercase is-size-1">
+                    Healthcare Hotspot
+                </p>
+                <p class="subtitle has-text-centered is-size-2">
+                    Helping You Find The Right Care
+                </p>
+                </div>
+            </section>
+            
+            <div class="inputs  is-full-width  columns is-centered is-flex is-flex-direction-column">
+                <div class="field has-addons container is-justify-content-center pt-5 column">
+                    <div class="control">
+                    <input class="input search-input" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5" name="search-button">
+                    </div>
+                    <div class="control">
+                    <a class="button is-info search-button">
+                        Search
+                    </a>
+                    </div>
+                    
+                </div>
+                <div class="column has-text-centered"><strong class="has-text-light is-size-3">Choose Your Provider Type</strong></div>
+                <div class="select container selection-list column">
+                    <select class="container option-selection">
+                      <option id="family-med">Family Medicine</option>
+                      <option id="pharmacy">Pharmacy</option>
+                      <option id="Counselor">Counselor</option>
+                      <option id="dentist">Dentist</option>
+                    </select>
+                </div>
+                <!-- <div>Testing</div> -->
+                <div id="content-div" class="m-6 is-flex columns is-flex-wrap-wrap is-flex-grow-2  is-variable is-3 is-justify-content-space-around is-align-content-center"></div>
+                <div class="hidden"></div>
+            </div>
+            <div class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                <div class="card">
+                    <div class="card-content">
+                    <div class="content modal-body">
+                        Please Enter A Valid ZipCode
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+        </main>
+        <footer class="footer p-0 is-flex is-flex-direction-column is-justify-content-center has-background-dark has-text-light">
+            <div class="content has-text-centered ">
+            <p>
+                <strong class="has-text-light">Healthcare Hotspot</strong> by Andrew Monson, Jessica Scheck, Kassandra Quintana and Collin Rent</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. 
+            </p>
+            </div>
+        </footer>
+    </body>
+    <script src="./assets/js/script.js" defer></script>
+</html>
