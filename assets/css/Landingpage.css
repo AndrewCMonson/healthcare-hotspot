@@ -1,5 +1,6 @@
 /*simplified css with root variables*/
 :root {
+    /* this background color has a better contrast ratio against #fff text per WCAG*/
     --background-color: #1d76a9;
     --font-color: #fff;
     --button-hover-color: #729d00;
