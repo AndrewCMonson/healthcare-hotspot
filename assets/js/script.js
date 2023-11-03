@@ -1,16 +1,3 @@
-
-const getHealthInfo = (city, state) => {
-    const taxonomy = getUserProviderTypeSelection();
-    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&&city=${city}&state=${state}&pretty=on&limit=200&taxonomy_description=${taxonomy}`;
-    
-
-    fetch(url)
-        // returns api response, converts to JSON then stores JSON data into variable
-        .then(response => response.json())
-        .then(responseJson => buildProviders(responseJson.results))  
-        .catch(err => showZipModal(err)) 
-}
-
 // API call that takes in a zipcode and returns city and state information
 const getCityState = (zipcode) =>{
     const url = `https://ZiptasticAPI.com/${zipcode}`;
@@ -19,6 +6,19 @@ const getCityState = (zipcode) =>{
         .then(response => response.json())
         .then(responseJSON => getHealthInfo(responseJSON.city, responseJSON.state))
         .catch(err => showZipModal(err))
+}
+// API call that takes city and state from getCityState API call and grabs user input selection from DOM to pass to buildProviders function to populate DOM with providers
+const getHealthInfo = (city, state) => {
+    const taxonomy = getUserProviderTypeSelection();
+    const url = `https://corsproxy.io/?https://npiregistry.cms.hhs.gov/api/?version=2.1&&city=${city}&state=${state}&pretty=on&limit=200&taxonomy_description=${taxonomy}`;
+    
+
+    fetch(url)
+        // returns api response, converts to JSON then stores JSON data into variable
+        .then(response => response.json())
+        // .then(responseJson => console.log(responseJson))
+        .then(responseJson => buildProviders(responseJson.results))  
+        .catch(err => showZipModal(err)) 
 }
 
 // This function takes in an API response as an argument and builds an array of objects (providers) with the API information
@@ -41,27 +41,30 @@ const buildProviders = (data) => {
         }
         providerArr.push(providerInfo);
     }
-    if(providerArr.length > -1){
-        providerArr.forEach(getProviderType);
-    }
-    
+
+    const shuffledArray = shuffle(providerArr);
+
+    const slicedShuffledArray = shuffledArray.slice(0, 15);
+
+    slicedShuffledArray.forEach(getProviderType);
+
 }
 
 // This function takes in an array of objects and publishes select information to the DOM based on if the provided arr contains a provider first name or not
 // If there is no first name, it uses the org name and publishes the rest of the information accordingly
 // This is used by a forEach method within the object array constructor function (buildProvider)
 const displayProviders = (obj) => {
-    const testDiv = document.getElementById('content-div');
-    const nameDiv = document.createElement('div')
-    const addressDiv = document.createElement('div')
-    const telephoneDiv = document.createElement('div')
+    const contentDiv = document.getElementById('content-div'); 
+    const nameDiv = document.createElement('div');
+    const addressDiv = document.createElement('div');
+    const telephoneDiv = document.createElement('div');
 
     if(obj.providerFirstName){
-        testDiv.append(nameDiv);
+        contentDiv.append(nameDiv);
         nameDiv.textContent = `${obj.providerFirstName} ${obj.providerLastName}`
-        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
-        addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
-        telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
+        nameDiv.classList.add('temp-div', 'box', 'has-text-centered', 'column', 'is-one-third', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
+        addressDiv.classList.add('temp-div', 'container', 'box', 'has-text-centered', 'mb-0', 'is-size-6');
+        telephoneDiv.classList.add('temp-div', 'container', 'box', 'has-text-centered', 'mb-0', 'is-size-6');
         if(obj.providerAddressOne){
             nameDiv.append(addressDiv);
             addressDiv.innerHTML = `<a target=_blank href="https://www.google.com/maps/place/${obj.providerAddressOne}+${obj.providerCity}+${obj.providerState}+${obj.providerZip.slice(0, -4)}">${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}</a>`;
@@ -79,11 +82,11 @@ const displayProviders = (obj) => {
     } 
     else {
         const nameDiv = document.createElement('div');
-        testDiv.append(nameDiv);
+        contentDiv.append(nameDiv);
         nameDiv.textContent = `${obj.providerOrgName}`;
-        nameDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'column', 'is-half', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
-        addressDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
-        telephoneDiv.classList.add('temp-div', 'container', 'box', 'is-justify-content-center', 'has-text-centered', 'mb-0', 'is-size-6')
+        nameDiv.classList.add('temp-div', 'box', 'has-text-centered', 'column', 'is-one-third', 'mb-0', 'is-size-3', 'is-flex', 'is-flex-direction-column', 'is-justify-content-space-between');
+        addressDiv.classList.add('temp-div', 'container', 'box', 'has-text-centered', 'mb-0', 'is-size-6')
+        telephoneDiv.classList.add('temp-div', 'container', 'box', 'has-text-centered', 'mb-0', 'is-size-6')
         if(obj.providerAddressOne){
             nameDiv.append(addressDiv);
             addressDiv.innerHTML = `<a target=_blank href="https://www.google.com/maps/place/${obj.providerAddressOne}+${obj.providerCity}+${obj.providerState}+${obj.providerZip.slice(0, -4)}">${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}</a>`;
@@ -103,7 +106,7 @@ const displayProviders = (obj) => {
 
 
 // function to show warning modal
-const showZipModal = (err) => {
+const showZipModal = () => {
     const modal = document.querySelector('.modal');
     // const modalBody = document.querySelector('.modal-body')
     modal.classList.add('is-active');
@@ -125,7 +128,6 @@ document.querySelector('.search-input').addEventListener('keypress', e => {
 // Two event listeners that capture user input and  start the chain of API calls and function calls 
 document.querySelector('.search-button').addEventListener('click', e => {
     const userInput = document.querySelector('.search-input').value;
-    // getUserProviderTypeSelection();
     deleteDivs();
     getCityState(userInput);
 })
@@ -205,3 +207,11 @@ const getProviderType = (obj) => {
     }
     
 }
+
+const shuffle = (array) => { 
+    for (let i = array.length - 1; i > 0; i--) { 
+      const j = Math.floor(Math.random() * (i + 1)); 
+      [array[i], array[j]] = [array[j], array[i]]; 
+    } 
+    return array; 
+}; 
