@@ -43,7 +43,7 @@ nav a:hover {
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 95vh;
+    height: 90vh;
     padding: 3rem calc((100vw - 1300px) /2);
 }
 
@@ -77,9 +77,14 @@ button {
     border-radius: 50px;
 }
 
+button a {
+    color: #3e8ed0;
+}
+
 button:hover {
-    background: #FFFFFF;
-    color: #0066FF;
+    position: relative;
+    bottom: 1px;
+    left: 1px;
 }
 
 .column-right {

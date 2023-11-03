@@ -1,3 +1,4 @@
+
 * {
     font-family: 'Archivo Narrow', sans-serif;
 }
@@ -12,3 +13,6 @@ footer {
     height: 10vh;
 }
 
+.box {
+    margin: 5px;
+}
