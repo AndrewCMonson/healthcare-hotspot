@@ -67,7 +67,7 @@ const displayProviders = (obj) => {
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'has-text-centered', 'mb-0', 'is-size-6');
         if(obj.providerAddressOne){
             nameDiv.append(addressDiv);
-            addressDiv.innerHTML = `<a target=_blank href="https://www.google.com/maps/place/${obj.providerAddressOne}+${obj.providerCity}+${obj.providerState}+${obj.providerZip.slice(0, -4)}">${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}</a>`;
+            addressDiv.innerHTML = `<a target=_blank href="https://www.google.com/maps/place/${obj.providerAddressOne}+${obj.providerCity}+${obj.providerState}+${obj.providerZip.slice(0, -4)}">${obj.providerAddressOne} ${obj.providerCity}, ${obj.providerState} ${obj.providerZip.slice(0, -4)}</a>`;
         }else {
             nameDiv.append(addressDiv);
             addressDiv.textContent = `No Address Provided`;
@@ -89,7 +89,7 @@ const displayProviders = (obj) => {
         telephoneDiv.classList.add('temp-div', 'container', 'box', 'has-text-centered', 'mb-0', 'is-size-6')
         if(obj.providerAddressOne){
             nameDiv.append(addressDiv);
-            addressDiv.innerHTML = `<a target=_blank href="https://www.google.com/maps/place/${obj.providerAddressOne}+${obj.providerCity}+${obj.providerState}+${obj.providerZip.slice(0, -4)}">${obj.providerAddressOne} ${obj.providerCity} ${obj.providerState}, ${obj.providerZip.slice(0, -4)}</a>`;
+            addressDiv.innerHTML = `<a target=_blank href="https://www.google.com/maps/place/${obj.providerAddressOne}+${obj.providerCity}+${obj.providerState}+${obj.providerZip.slice(0, -4)}">${obj.providerAddressOne} ${obj.providerCity}, ${obj.providerState} ${obj.providerZip.slice(0, -4)}</a>`;
         }else {
             nameDiv.append(addressDiv);
             addressDiv.textContent = `No Address Provided`;
