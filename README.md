@@ -1,6 +1,13 @@
 # healthcare-hotspot
 
-![Healthcare Hotspot Demo Gif](resources/healthcare-hotspot-demo.gif)
+An overall demo of our app:
+![Healthcare Hotspot Demo Gif](./resources/healthcare-hotspot-demo.gif)
+
+User can choose what type of provider:
+![Provider Type Dropdown](./resources/provider-type-choices.gif)
+
+User breakpoints/error-proofing is included:
+![User Invalid Zip Modal](./resources/invalid-zip-breakpoint.png)
 
 ## Project Breakdown
 
