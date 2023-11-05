@@ -12,24 +12,26 @@
     </head>
     <body>
         <main class="is-flex is-flex-direction-column is-centered is-align-content-center ">
-            <section class="hero is-info ">
+            <section>
+                
                 <div class="hero-body is-flex is-justify-content-center is-flex-direction-column is-align-content-center">
-                <p class="title has-text-centered is-uppercase is-size-1">
-                    Healthcare Hotspot
-                </p>
-                <p class="subtitle has-text-centered is-size-2">
-                    Helping You Find The Right Care
-                </p>
+                    <p class="title has-text-centered is-uppercase is-size-1">
+                        Healthcare Hotspot
+                    </p>
+                    
+                    <figure class="is-flex is-justify-content-center">
+                        <img src="resources/medical logo.png" class="image medical-logo"/>
+                    </figure>
                 </div>
             </section>
             
-            <div class="inputs  is-full-width  columns is-centered is-flex is-flex-direction-column">
+            <div class="inputs  is-full-width columns is-centered is-flex is-flex-direction-column">
                 <div class="field has-addons container is-justify-content-center pt-5 column">
                     <div class="control">
-                    <input class="input search-input" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5" name="search-button">
+                    <input class="input is-medium search-input grey-darker" placeholder="Enter Zipcode" pattern="\d{5}" type="text" maxlength="5" name="search-button">
                     </div>
                     <div class="control">
-                    <a class="button is-info search-button">
+                    <a class="button is-medium is-info search-button">
                         Search
                     </a>
                     </div>
@@ -44,7 +46,6 @@
                       <option id="dentist">Dentist</option>
                     </select>
                 </div>
-                <!-- <div>Testing</div> -->
                 <div id="content-div" class="m-6 is-flex columns is-flex-wrap-wrap is-flex-grow-2 is-justify-content-space-around is-align-content-center"></div>
                 <div class="hidden"></div>
             </div>
@@ -62,10 +63,10 @@
                 <button class="modal-close is-large" aria-label="close"></button>
             </div>
         </main>
-        <footer class="footer p-0 is-flex is-flex-direction-column is-justify-content-center has-background-dark has-text-light">
+        <footer class="footer p-0 is-flex is-flex-direction-column is-justify-content-center has-background-light has-text-dark">
             <div class="content has-text-centered ">
             <p>
-                <strong class="has-text-light">Healthcare Hotspot</strong> by Andrew Monson, Jessica Scheck, Kassandra Quintana and Collin Rent</a>. The source code is licensed
+                <strong class="has-text-dark">Healthcare Hotspot</strong> by Andrew Monson, Jessica Scheck, Kassandra Quintana and Collin Rent</a>. The source code is licensed
                 <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. 
             </p>
             </div>

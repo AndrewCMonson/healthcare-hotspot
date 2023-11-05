@@ -1,6 +1,15 @@
 # healthcare-hotspot
 
-![Healthcare Hotspot Demo Gif](resources/healthcare-hotspot-demo.gif)
+[View on GitHub Page](https://andrewcmonson.github.io/healthcare-hotspot/)
+
+An overall demo of our app:
+![Healthcare Hotspot Demo Gif](./resources/healthcare-hotspot-demo.gif)
+
+User can choose what type of provider:
+![Provider Type Dropdown](./resources/provider-type-choices.gif)
+
+User breakpoints/error-proofing is included:
+![User Invalid Zip Modal](./resources/invalid-zip-breakpoint.png)
 
 ## Project Breakdown
 
@@ -66,3 +75,9 @@ For a better user experience we wanted to prevent as many user errors as possibl
 - letter input
 
 We solved this by limiting the input use; the user is unable to use any keydown event that wasn't either a number key, "Enter," or "Backspace." This simplified our code so that we didn't have to develop for multiple error circumstances, as we prevented those errors at the very start. This also makes the app fairly error-proof for users, and is very clear when there is an error for false zipcode inputs (using a full window modal).
+
+### "If We Could Do Anything" Future Additions
+
+We all think this app could expand to show what insurance providers work with the healthacare providers, whether through using a different API that contained this data or by combining it with another health insurance API.
+
+Ideally we would also like to include a radius option, so that the results are pulled and ordered by distance to the user. We feel both of these options would increase the utility of the app.

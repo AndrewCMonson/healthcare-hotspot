@@ -1,7 +1,20 @@
+/*simplified css with root variables*/
+:root {
+    --background-color: #1d76a9;
+    --font-color: #fff;
+    --button-hover-color: #729d00;
+}
 
 * {
     font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1.5rem;
 }
+
+section {
+    background-color: var(--background-color);
+    color: #fff;
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -13,6 +26,28 @@ footer {
     height: 10vh;
 }
 
+figure {
+    margin-top: -10px;
+}
+
 .box {
     margin: 5px;
+}
+
+.title {
+    color: #fff;
+}
+
+.subtitle {
+    color: #fff;
+}
+
+.medical-logo {
+    height: 75px;
+    width: 75px;
+    border-radius: 10%;
+}
+
+.hero-body {
+    padding: 1.5rem;
 }
